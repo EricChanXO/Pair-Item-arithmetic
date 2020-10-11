@@ -1,20 +1,19 @@
 package com.cyqwsj.arithmetic.service;
 
 import com.cyqwsj.arithmetic.service.impl.Expression;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import javax.annotation.Resource;
+import org.springframework.test.context.junit4.SpringRunner;
 import java.util.List;
 
 @SpringBootTest
 public class GenerateToFileTest {
 
-    @Resource
-    private GenerateToFile generateToFile;
 
-    @Resource
-    private TopicGenerator topicGenerator;
+    private GenerateToFile generateToFile = new GenerateToFile();
+
+
+    private TopicGenerator topicGenerator = new TopicGenerator();
 
     @Test
     public void generatorToFile() {
