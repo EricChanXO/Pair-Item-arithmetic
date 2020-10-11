@@ -19,9 +19,9 @@ import static com.cyqwsj.arithmetic.constant.OperationalConstant.*;
  * @date 2020/10/9 22:47
  */
 @Component
-public class Generator {
+public class TopicGenerator {
 
-    private final Random random = new Random();
+    private Random random = new Random();
 
     /**
      * 生成问题列表

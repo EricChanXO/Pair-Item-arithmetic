@@ -19,7 +19,7 @@ public class MainController {
     @Resource
     private GenerateController generateController;
 
-    private final Scanner in = new Scanner(System.in);
+    private Scanner in = new Scanner(System.in);
 
     /**
      * 主控制台

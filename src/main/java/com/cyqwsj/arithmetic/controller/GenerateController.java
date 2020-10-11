@@ -2,7 +2,7 @@ package com.cyqwsj.arithmetic.controller;
 
 import com.cyqwsj.arithmetic.constant.CommandConstant;
 import com.cyqwsj.arithmetic.service.GenerateToFile;
-import com.cyqwsj.arithmetic.service.Generator;
+import com.cyqwsj.arithmetic.service.TopicGenerator;
 import com.cyqwsj.arithmetic.service.impl.Expression;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
@@ -24,7 +24,7 @@ import java.util.regex.Pattern;
 public class GenerateController {
 
     @Resource
-    private Generator generator;
+    private TopicGenerator topicGenerator;
 
     @Resource
     private GenerateToFile generateToFile;
@@ -57,7 +57,7 @@ public class GenerateController {
                 rangeNum = Integer.parseInt(commands[i + 1]);
             }
         }
-        List<Expression> expressions = generator.generate(totalNum, rangeNum);
+        List<Expression> expressions = topicGenerator.generate(totalNum, rangeNum);
         Assert.isTrue(Objects.nonNull(expressions), "生成题目失败");
         //默认生成到当前目录下的Exercises.txt Answers.txt
         generateToFile.generatorToFile(expressions, "Exercises.txt", "Answers.txt");
