@@ -24,7 +24,7 @@ public class MainController {
     /**
      * 主控制台
      */
-    public void mainConsole(){
+    public void mainConsole() {
         String command;
         do {
             command = in.nextLine();
@@ -52,6 +52,9 @@ public class MainController {
         } else if (command.contains(CommandConstant.RANGE_VALUE)) {
             //必须指定-n
             System.out.println("missing parameter '-n'!");
+        } else if (command.contains(CommandConstant.CHECK_FILE_VALUE) && command.contains(CommandConstant.CHECK_ANSWER_VALUE)) {
+            //比对答案
+            generateController.checkQuestion(command);
         } else if (command.contains(CommandConstant.CHECK_FILE_VALUE)) {
             //必须指定-a
             System.out.println("missing parameter '-a'!");

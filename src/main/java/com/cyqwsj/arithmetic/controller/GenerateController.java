@@ -65,7 +65,7 @@ public class GenerateController {
     }
 
     /**
-     * 对给定的题目文件和答案文件，判定答案中的对错并进行数量统计
+     * 对给定的练习文件和答案文件进行校验，判定答案对错并进行数量统计
      *
      * @param command 命令
      */
@@ -120,5 +120,4 @@ public class GenerateController {
         File file = new File(path);
         return file.exists();
     }
-
 }
