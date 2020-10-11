@@ -15,6 +15,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ * 生成器控制类
+ *
  * @author cyq
  * @date 2020/10/11 9:38
  */
@@ -42,7 +44,7 @@ public class GenerateController {
         }
         String[] commands = command.split("\\s+");
         if (commands.length != 5) {
-            System.out.println("error command!");
+            System.out.println("错误命令！");
             return;
         }
         for (int i = 0; i < commands.length; i++) {
@@ -59,7 +61,7 @@ public class GenerateController {
         Assert.isTrue(Objects.nonNull(expressions), "生成题目失败");
         //默认生成到当前目录下的Exercises.txt Answers.txt
         generateToFile.generatorToFile(expressions, "Exercises.txt", "Answers.txt");
-        System.out.println("generate finished!");
+        System.out.println("生成成功！");
     }
 
     /**
@@ -75,7 +77,7 @@ public class GenerateController {
         }
         String[] strings = command.split("\\s+");
         if (strings.length != 5) {
-            System.out.println("error command!");
+            System.out.println("错误命令！");
             return;
         }
         for (int i = 0; i < strings.length; i++) {
@@ -86,18 +88,15 @@ public class GenerateController {
             }
         }
         if (!pathIsLegal(exercisePath) || !pathIsLegal(answerPath)) {
-            System.out.println("file path illegal!");
-            System.out.println("--------------------------");
+            System.out.println("文件路径不合法");
             return;
         }
         if (!pathExist(exercisePath) || !pathExist(answerPath)) {
-            System.out.println("file path not exist!");
-            System.out.println("--------------------------");
+            System.out.println("文件路径不存在");
             return;
         }
         generateToFile.checkAnswer(exercisePath, answerPath, "Grade.txt");
-        System.out.println("check finished!");
-        System.out.println("--------------------------");
+        System.out.println("校验完成！");
     }
 
     /**

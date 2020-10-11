@@ -8,6 +8,8 @@ import javax.annotation.Resource;
 import java.util.Scanner;
 
 /**
+ * 主命令控制台
+ *
  * @author cyq
  * @date 2020/10/11 9:32
  */
@@ -26,19 +28,19 @@ public class MainController {
         String command;
         do {
             command = in.nextLine();
-            handler(command);
+            handlerDispatcher(command);
         } while (!"q".equals(command.replaceAll("\\s+", "")));
     }
 
     /**
-     * 命令处理分派方法
+     * 命令处理分发器
      *
      * @param command 命令
      */
-    public void handler(String command) {
+    public void handlerDispatcher(String command) {
         Assert.notNull(command, "命令不能为空");
         if (!command.contains(CommandConstant.MY_APP)) {
-            System.out.println("Unknown command!");
+            System.out.println("未知命令");
             return;
         }
         if (command.contains(CommandConstant.NUMBER_VALUE) && command.contains(CommandConstant.RANGE_VALUE)) {
@@ -47,19 +49,15 @@ public class MainController {
         } else if (command.contains(CommandConstant.NUMBER_VALUE)) {
             //必须指定-r
             System.out.println("missing parameter '-r'!");
-            System.out.println("--------------------------");
         } else if (command.contains(CommandConstant.RANGE_VALUE)) {
             //必须指定-n
             System.out.println("missing parameter '-n'!");
-            System.out.println("--------------------------");
         } else if (command.contains(CommandConstant.CHECK_FILE_VALUE)) {
             //必须指定-a
             System.out.println("missing parameter '-a'!");
-            System.out.println("--------------------------");
         } else if (command.contains(CommandConstant.CHECK_ANSWER_VALUE)) {
             //必须指定-e
             System.out.println("missing parameter '-e'!");
-            System.out.println("--------------------------");
         }
     }
 }
